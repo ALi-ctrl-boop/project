@@ -49,7 +49,17 @@ export const Movie = () => {
 					</div>
 					<div className='w-full'>
 						<Splide
-							options={{ type: 'loop', perPage: 7, focus: 'left', gap: '30px' }}
+							options={{
+								type: 'loop',
+								perPage: 7,
+								focus: 'left',
+								gap: '30px',
+								breakpoints: {
+									425: {
+										navigation: false,
+									},
+								},
+							}}
 						>
 							{movieCatalog.movies && movieCatalog.movies.length > 0 ? (
 								movieCatalog.movies.map(movie => (

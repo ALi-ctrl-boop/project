@@ -28,3 +28,16 @@
 		height: 261px !important;
 	}
 }
+
+@media (max-width: 425px) {
+	.resp_swipe {
+		padding-right: 7rem !important;
+	}
+	.splide__arrows  {
+		display: none;
+	}
+	.resp {
+		width: 134px !important;
+		height: 201px !important;
+	}
+}

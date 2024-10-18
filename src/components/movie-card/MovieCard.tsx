@@ -7,6 +7,7 @@ interface IMovieCard {
 	original_title: string
 	release_date: number
 	vote_count: string
+	sx?: string
 }
 
 export const MovieCard = ({
@@ -16,10 +17,13 @@ export const MovieCard = ({
 	original_title,
 	release_date,
 	vote_count,
+	sx,
 }: IMovieCard) => {
 	return (
 		<Link to={`/movie/${id}`}>
-			<div className='relative w-64 h-96 rounded-xl cursor-pointer group transition duration-500 hover:scale-[1.05] hover:border border-slate-400 resp'>
+			<div
+				className={`relative w-64 h-96 rounded-xl cursor-pointer group transition duration-500 hover:scale-[1.05] hover:border border-slate-400 resp ${sx}`}
+			>
 				<img
 					src={`https://image.tmdb.org/t/p/w500${poster_path}`}
 					alt='Image'
@@ -27,16 +31,18 @@ export const MovieCard = ({
 				/>
 
 				<div className='absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500'>
-					<span className='absolute top-4 left-4 text-white font-bold text-base p-1 rounded-lg bg-white bg-opacity-30'>
+					<span className='absolute top-4 left-4 text-white font-bold text-base p-1 rounded-lg bg-white bg-opacity-30 sm:text-sm'>
 						{vote_average}
 					</span>
 					<div className='absolute bottom-2 left-4'>
-						<p className='text-base text-white font-bold'>{original_title}</p>
-						<div className='flex items-center gap-4'>
-							<span className='text-white font-bold text-base'>
+						<p className='text-base text-white font-bold sm:text-sm'>
+							{original_title}
+						</p>
+						<div className='flex items-center gap-4 sm:flex-col sm:items-start sm:gap-0'>
+							<span className='text-white font-bold text-base sm:text-sm'>
 								{release_date.toString().slice(0, 4)}
 							</span>
-							<span className='text-white font-bold text-base'>
+							<span className='text-white font-bold text-base sm:text-sm'>
 								{Math.floor(Number(vote_count) / 60)} ч{' '}
 								{Number(vote_count) % 60} мин
 							</span>

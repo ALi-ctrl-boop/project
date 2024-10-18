@@ -52,7 +52,7 @@ export const MovieInfo = () => {
 					<span className='text-white font-bold text-base'>
 						{item.release_date.split('-')[0]}
 					</span>
-					<span className='text-white font-bold text-base'>
+					<span className='text-white font-bold text-base md:hidden'>
 						{item.genres.map(genre => genre.name).join(', ')}
 					</span>
 					<span className='text-white font-bold text-base'>

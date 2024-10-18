@@ -15,7 +15,7 @@ export const Swiper = () => {
 					gap: '20px',
 					breakpoints: {
 						768: {
-							perPage: 1,
+							perPage: 1.2,
 						},
 					},
 				}}

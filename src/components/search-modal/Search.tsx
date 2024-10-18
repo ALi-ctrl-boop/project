@@ -24,7 +24,7 @@ export const Search = () => {
 			>
 				<MdOutlineClose size={35} className='text-white ' />
 			</button>
-			<div className='relative w-5/12'>
+			<div className='relative w-5/12 lg:w-5/6'>
 				<h2 className='text-white font-bold text-2xl mb-2'>Поиск</h2>
 				<input
 					type='search'
