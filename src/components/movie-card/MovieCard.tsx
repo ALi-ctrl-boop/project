@@ -34,10 +34,11 @@ export const MovieCard = ({
 						<p className='text-base text-white font-bold'>{original_title}</p>
 						<div className='flex items-center gap-4'>
 							<span className='text-white font-bold text-base'>
-								{release_date.slice(0, 4)}
+								{release_date.toString().slice(0, 4)}
 							</span>
 							<span className='text-white font-bold text-base'>
-								{Math.floor(vote_count / 60)} ч {vote_count % 60} мин
+								{Math.floor(Number(vote_count) / 60)} ч{' '}
+								{Number(vote_count) % 60} мин
 							</span>
 						</div>
 					</div>

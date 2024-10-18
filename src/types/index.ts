@@ -4,7 +4,7 @@ export type IMovies = {
 	vote_average: number
 	original_title: string
 	release_date: number
-	vote_count: number
+	vote_count: string
 }
 
 export type IMoviesInfo = {
@@ -30,9 +30,12 @@ export type IMoviesInfo = {
 }
 
 export type IMovieCredits = {
-	cast: {
-		id: number
-		name: string
-		character: string
-	}
+	cast: [
+		{
+			id: number
+			name: string
+			character: string
+			profile_path: string
+		}
+	]
 }

@@ -27,7 +27,7 @@ export const SearchCard = ({
 					<h3 className='text-white font-bold text-sm'>{original_title}</h3>
 					<div className='space-x-2 mt-1'>
 						<span className='text-sm text-[#777] opacity-70 font-bold'>
-							{release_date.slice(0, 4)}
+							{release_date.toString().slice(0, 4)}
 						</span>
 						<span className='p-1 bg-slate-800 rounded-lg font-bold text-sm text-white'>
 							{vote_average}

@@ -17,7 +17,9 @@ export const MovieVideo = () => {
 			const { data } = await axios.get(
 				`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${KEY_API}`
 			)
-			const trailer = data.results.find(v => v.type === 'Trailer')
+			const trailer = data.results.find(
+				(video: { type: string }) => video.type === 'Trailer'
+			)
 			setVideos(trailer.key)
 		} catch (error) {
 			console.error('Ошибка при получении данных:', error)
