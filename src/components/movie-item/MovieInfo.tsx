@@ -4,11 +4,7 @@ import { FaRegStar } from 'react-icons/fa6'
 import { PiBookmarkSimple } from 'react-icons/pi'
 import { useParams } from 'react-router-dom'
 import { useAppDispatch } from '../../hooks/redux'
-import {
-	KEY_API,
-	openModalMovieFilmVideo,
-	openModalMovieVideo,
-} from '../../store/movieSlice'
+import { KEY_API, toggleModal } from '../../store/movieSlice'
 import { IMoviesInfo } from '../../types'
 import { Button } from '../ui/button/Button'
 import './styles.css'
@@ -67,7 +63,7 @@ export const MovieInfo = () => {
 					</span>
 				</div>
 				<p className='text-lg text-white w-[45%] mb-2 lg:w-2/3 info'>
-					{item.overview}
+					{item.overview.substring(0, 200)}
 				</p>
 				<div className='flex items-center gap-2 md:hidden'>
 					<span className='text-gray-400 font-bold text-lg'>Режиссёр:</span>
@@ -87,13 +83,19 @@ export const MovieInfo = () => {
 				</div>
 				<div className='flex items-center gap-4 mt-3'>
 					<Button
-						onClick={() => dispatch(openModalMovieFilmVideo())}
+						onClick={() =>
+							dispatch(
+								toggleModal({ modal: 'isOpenMovieFilmVideo', isOpen: true })
+							)
+						}
 						variant='primary'
 					>
 						Смотреть фильм{' '}
 					</Button>
 					<Button
-						onClick={() => dispatch(openModalMovieVideo())}
+						onClick={() =>
+							dispatch(toggleModal({ modal: 'isOpenMovieVideo', isOpen: true }))
+						}
 						variant='secondary'
 					>
 						Трейлер

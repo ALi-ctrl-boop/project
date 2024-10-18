@@ -1,6 +1,6 @@
 import { MdOutlineClose } from 'react-icons/md'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
-import { closeModalMovieFilmVideo } from '../../store/movieSlice'
+import { toggleModal } from '../../store/movieSlice'
 import { Modal } from '../ui/modal/Modal'
 
 export const MovieFilm = () => {
@@ -9,7 +9,11 @@ export const MovieFilm = () => {
 	return (
 		<Modal isOpen={isOpenMovieFilmVideo}>
 			<button
-				onClick={() => dispatch(closeModalMovieFilmVideo())}
+				onClick={() =>
+					dispatch(
+						toggleModal({ modal: 'isOpenMovieFilmVideo', isOpen: false })
+					)
+				}
 				className='absolute top-6 right-6 outline-none z-10'
 			>
 				<MdOutlineClose size={35} className='text-white ' />

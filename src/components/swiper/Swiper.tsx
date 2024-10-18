@@ -21,8 +21,8 @@ export const Swiper = () => {
 					},
 				}}
 			>
-				{SLIDER_SWIPER.map(slider => (
-					<SplideSlide key={slider.rating}>
+				{SLIDER_SWIPER.map((slider, i) => (
+					<SplideSlide key={i}>
 						<div className='relative w-full h-[600px] rounded-[30px] border border-gray-900 swiper md:rounded-xl'>
 							<img
 								className='w-full h-full object-center rounded-[30px] md:rounded-xl'

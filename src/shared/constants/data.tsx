@@ -64,51 +64,51 @@ export const CATEGORY_MOVIE: ICategoryMovies[] = [
 	{
 		title: 'Лучшие',
 		url: '/movies/comedy',
-		icon: '/public/svg/cup-1-svgrepo-com (1).svg',
+		icon: '/svg/cup-1-svgrepo-com (1).svg',
 	},
 	{
 		title: 'Новые',
 		url: '/movies/comedy',
-		icon: '/public/svg/fire-svgrepo-com.svg',
+		icon: '/svg/fire-svgrepo-com.svg',
 	},
 	{
 		title: 'Мелодраммы',
 		url: '/movies/comedy',
-		icon: '/public/svg/heart-svgrepo-com.svg',
+		icon: '/svg/heart-svgrepo-com.svg',
 	},
 	{
 		title: 'Ужасы',
 		url: '/movies/comedy',
-		icon: '/public/svg/knife-svgrepo-com.svg',
+		icon: '/svg/knife-svgrepo-com.svg',
 	},
 	{
 		title: 'Приключения',
 		url: '/movies/comedy',
-		icon: '/public/svg/map-svgrepo-com (1).svg',
+		icon: '/svg/map-svgrepo-com (1).svg',
 	},
 	{
 		title: 'Фантастика',
 		url: '/movies/comedy',
-		icon: '/public/svg/rocket-2-svgrepo-com.svg',
+		icon: '/svg/rocket-2-svgrepo-com.svg',
 	},
 	{
 		title: 'Семейные',
 		url: '/movies/comedy',
-		icon: '/public/svg/users-svgrepo-com.svg',
+		icon: '/svg/users-svgrepo-com.svg',
 	},
 	{
 		title: 'Комедии',
 		url: '/movies/comedy',
-		icon: '/public/svg/smile-square-svgrepo-com.svg',
+		icon: '/svg/smile-square-svgrepo-com.svg',
 	},
 	{
 		title: 'Концерты',
 		url: '/movies/comedy',
-		icon: '/public/svg/music-2-svgrepo-com.svg',
+		icon: '/svg/music-2-svgrepo-com.svg',
 	},
 	{
 		title: 'Военные',
 		url: '/movies/comedy',
-		icon: '/public/svg/tank-war-svgrepo-com.svg',
+		icon: '/svg/tank-war-svgrepo-com.svg',
 	},
 ]

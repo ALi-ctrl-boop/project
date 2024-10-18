@@ -1,15 +1,15 @@
 import { useState } from 'react'
 import { MdOutlineClose } from 'react-icons/md'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
-import { closeModalSearch } from '../../store/movieSlice'
+import { toggleModal } from '../../store/movieSlice'
 import { SearchCard } from '../search-card/SearchCard'
 
 export const Search = () => {
 	const [search, setSearch] = useState<string>('')
-	const { isOpenSearch, popularMovies } = useAppSelector(state => state.movie)
+	const { isOpenSearch, movies } = useAppSelector(state => state.movie)
 	const dispatch = useAppDispatch()
 
-	const filteredMovies = popularMovies.filter(movie =>
+	const filteredMovies = movies.popularMovies.filter(movie =>
 		movie.original_title.toLowerCase().includes(search.toLowerCase())
 	)
 	return (
@@ -19,7 +19,9 @@ export const Search = () => {
 			}`}
 		>
 			<button
-				onClick={() => dispatch(closeModalSearch())}
+				onClick={() =>
+					dispatch(toggleModal({ modal: 'isOpenSearch', isOpen: false }))
+				}
 				className='absolute top-6 right-6 outline-none z-10'
 			>
 				<MdOutlineClose size={35} className='text-white ' />

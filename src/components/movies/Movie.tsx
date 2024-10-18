@@ -4,35 +4,33 @@ import '@splidejs/react-splide/css/sea-green'
 import { useEffect } from 'react'
 import { FaChevronRight } from 'react-icons/fa6'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
-import {
-	getDramaMovies,
-	getFamilyMovies,
-	getNewMovies,
-	getPopularMovies,
-	getSciFiMovies,
-} from '../../store/movieSlice'
+import { getAllMovies } from '../../store/movieSlice'
 import { MovieCard } from '../movie-card/MovieCard'
 import './swiper.css'
 
 export const Movie = () => {
 	const dispatch = useAppDispatch()
-	const { popularMovies, familyMovies, newMovies, dramaMovies, sciFiMovies } =
-		useAppSelector(state => state.movie)
+	const { movies } = useAppSelector(state => state.movie)
 
 	useEffect(() => {
-		dispatch(getPopularMovies())
-		dispatch(getFamilyMovies())
-		dispatch(getNewMovies())
-		dispatch(getDramaMovies())
-		dispatch(getSciFiMovies())
+		const endpoints = [
+			'movie/popular',
+			'discover/movie?with_genres=10751',
+			'movie/top_rated',
+			'movie/upcoming',
+			'movie/popular',
+		]
+		endpoints.forEach(end => {
+			dispatch(getAllMovies(end))
+		})
 	}, [dispatch])
 
 	const moviesCatalog = [
-		{ title: 'Популярные фильмы', movies: popularMovies },
-		{ title: 'Смотрим всей семьей', movies: familyMovies },
-		{ title: 'Топ фильмы', movies: newMovies },
-		{ title: 'Новые фильмы', movies: dramaMovies },
-		{ title: 'Фантастика', movies: sciFiMovies },
+		{ title: 'Популярные фильмы', movies: movies.popularMovies },
+		{ title: 'Смотрим всей семьей', movies: movies.familyMovies },
+		{ title: 'Топ фильмы', movies: movies.newMovies },
+		{ title: 'Новые фильмы', movies: movies.dramaMovies },
+		{ title: 'Фантастика', movies: movies.sciFiMovies },
 	]
 
 	return (

@@ -27,11 +27,11 @@ export const ActorsCreators = () => {
 	return (
 		<div className='relative overflow-hidden z-10 px-10 w-[1700px] mt-20 xl2:w-full '>
 			<h2 className='text-2xl text-white font-bold'>Актёры и создатели</h2>
-			<div className='w-[170rem] overflow-x-scroll flex gap-4 mt-4'>
+			<div className='w-[80rem] overflow-x-scroll flex gap-4 mt-4'>
 				{movies.cast.slice(0, 8).map(movie => (
 					<div
 						key={movie.id}
-						className='w-36 h-auto p-2 transition duration-500 cursor-pointer hover:-translate-y-2'
+						className='w-40 h-auto p-2 transition duration-500 cursor-pointer hover:-translate-y-2'
 					>
 						<img
 							src={`https://image.tmdb.org/t/p/w500${movie.profile_path}`}

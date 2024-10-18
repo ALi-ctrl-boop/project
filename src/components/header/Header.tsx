@@ -5,7 +5,7 @@ import { MdOutlineClose, MdOutlineMenu } from 'react-icons/md'
 import { Link } from 'react-router-dom'
 import { useAppDispatch } from '../../hooks/redux'
 import { NAVIGATION_LINKS } from '../../shared/constants/data'
-import { openModalSearch } from '../../store/movieSlice'
+import { toggleModal } from '../../store/movieSlice'
 import './header.css'
 
 export const Header = () => {
@@ -17,7 +17,11 @@ export const Header = () => {
 		<header className='relative z-10 w-[1700px] flex items-center justify-between py-4 px-3 xl2:w-full'>
 			<div className='flex items-center gap-9'>
 				<Link to='/'>
-					<img src='https://kinomore.netlify.app/logo.svg' alt='Logo' className='w-20 h-10' />
+					<img
+						src='https://kinomore.netlify.app/logo.svg'
+						alt='Logo'
+						className='w-20 h-10'
+					/>
 				</Link>
 				<nav
 					className={`md:fixed md:z-50 top-0 left-0 md:py-24 md:px-4 md:bg-black md:bg-opacity-80 w-full h-full transition duration-300  ${
@@ -50,7 +54,11 @@ export const Header = () => {
 				</nav>
 			</div>
 			<div className='flex items-center gap-5'>
-				<button onClick={() => dispatch(openModalSearch())}>
+				<button
+					onClick={() =>
+						dispatch(toggleModal({ modal: 'isOpenSearch', isOpen: true }))
+					}
+				>
 					<GoSearch className='text-white opacity-50' size={25} />
 				</button>
 				<Link to={'/profile'}>
