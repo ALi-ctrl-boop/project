@@ -3,7 +3,7 @@ import { CATEGORY_MOVIE } from '../../shared/constants/data'
 
 export const Category = () => {
 	return (
-		<div className='w-[1440px] overflow-hidden flex items-center justify-center gap-2 py-4 px-3 mt-4 xl2:w-full'>
+		<div className='w-[1700px] overflow-hidden flex items-center justify-center gap-2 py-4 px-3 mt-4 xl2:w-full'>
 			<nav className='w-full overflow-x-scroll flex gap-4 md:gap-2'>
 				{CATEGORY_MOVIE.map((category, i) => (
 					<Link key={i} to={'/movie'}>

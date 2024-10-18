@@ -8,8 +8,10 @@ interface IStateType {
 	newMovies: IMovies[]
 	dramaMovies: IMovies[]
 	sciFiMovies: IMovies[]
+	sliderMovies: IMovies[]
 	isOpenSearch: boolean
 	isOpenMovieVideo: boolean
+	isOpenMovieFilmVideo: boolean
 }
 
 const initialState: IStateType = {
@@ -18,11 +20,24 @@ const initialState: IStateType = {
 	newMovies: [],
 	dramaMovies: [],
 	sciFiMovies: [],
+	sliderMovies: [],
 	isOpenSearch: false,
 	isOpenMovieVideo: false,
+	isOpenMovieFilmVideo: false,
 }
 
 export const KEY_API: string = '035f3efbffe9e336ca0f7bce84ce7cd9'
+
+export const getImagesMovies = createAsyncThunk(
+	'movie/getImagesMovies',
+	async () => {
+		const { data } = await axios.get(
+			`https://api.themoviedb.org/3/movie/images?api_key=${KEY_API}`
+		)
+		console.log(data.results)
+		return data.results
+	}
+)
 
 export const getPopularMovies = createAsyncThunk(
 	'movie/getPopularMovies',
@@ -88,6 +103,12 @@ const sliceMovie = createSlice({
 		closeModalMovieVideo: state => {
 			state.isOpenMovieVideo = false
 		},
+		openModalMovieFilmVideo: state => {
+			state.isOpenMovieFilmVideo = true
+		},
+		closeModalMovieFilmVideo: state => {
+			state.isOpenMovieFilmVideo = false
+		},
 	},
 	extraReducers: build => {
 		build
@@ -106,6 +127,9 @@ const sliceMovie = createSlice({
 			.addCase(getSciFiMovies.fulfilled, (state, action) => {
 				state.sciFiMovies = action.payload
 			})
+			.addCase(getImagesMovies.fulfilled, (state, action) => {
+				state.sliderMovies = action.payload
+			})
 	},
 })
 
@@ -114,5 +138,7 @@ export const {
 	closeModalSearch,
 	openModalMovieVideo,
 	closeModalMovieVideo,
+	openModalMovieFilmVideo,
+	closeModalMovieFilmVideo,
 } = sliceMovie.actions
 export default sliceMovie.reducer

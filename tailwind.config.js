@@ -8,7 +8,7 @@ export default {
 				md: { max: '768px' },
 				lg: { max: '1024px' },
 				xl: { max: '1280px' },
-				xl2: { max: '1440px' },
+				xl2: { max: '1700px' },
 			},
 		},
 	},

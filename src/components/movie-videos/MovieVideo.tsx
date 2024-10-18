@@ -5,6 +5,7 @@ import ReactPlayer from 'react-player'
 import { useParams } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
 import { closeModalMovieVideo, KEY_API } from '../../store/movieSlice'
+import { Modal } from '../ui/modal/Modal'
 
 export const MovieVideo = () => {
 	const { isOpenMovieVideo } = useAppSelector(state => state.movie)
@@ -20,6 +21,10 @@ export const MovieVideo = () => {
 			const trailer = data.results.find(
 				(video: { type: string }) => video.type === 'Trailer'
 			)
+
+			if (!trailer) {
+				throw new Error(`Не найден Трейлер`)
+			}
 			setVideos(trailer.key)
 		} catch (error) {
 			console.error('Ошибка при получении данных:', error)
@@ -30,11 +35,7 @@ export const MovieVideo = () => {
 		getMovieVideo()
 	}, [id])
 	return (
-		<div
-			className={`fixed w-full h-full bg-black bg-opacity-80 left-0 top-0 z-20 flex items-center justify-center flex-col transition duration-300  
-				${!isOpenMovieVideo ? '-translate-y-[100%]' : 'translate-y-[0]'}
-	`}
-		>
+		<Modal isOpen={isOpenMovieVideo}>
 			<button
 				onClick={() => dispatch(closeModalMovieVideo())}
 				className='absolute top-6 right-6 outline-none z-10'
@@ -49,6 +50,6 @@ export const MovieVideo = () => {
 					autoPlay
 				/>
 			</div>
-		</div>
+		</Modal>
 	)
 }

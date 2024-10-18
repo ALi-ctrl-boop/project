@@ -25,7 +25,7 @@ export const ActorsCreators = () => {
 
 	if (!movies) return <div>Loading...</div>
 	return (
-		<div className='relative overflow-hidden z-10 px-10 w-[1440px] mt-20 xl2:w-full '>
+		<div className='relative overflow-hidden z-10 px-10 w-[1700px] mt-20 xl2:w-full '>
 			<h2 className='text-2xl text-white font-bold'>Актёры и создатели</h2>
 			<div className='w-[170rem] overflow-x-scroll flex gap-4 mt-4'>
 				{movies.cast.slice(0, 8).map(movie => (

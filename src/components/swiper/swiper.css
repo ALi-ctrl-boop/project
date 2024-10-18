@@ -37,6 +37,6 @@
 }
 @media (max-width: 480px) {
 	.swiper {
-		height: 250px !important;
+		height: 200px !important;
 	}
 }

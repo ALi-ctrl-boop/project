@@ -4,7 +4,11 @@ import { FaRegStar } from 'react-icons/fa6'
 import { PiBookmarkSimple } from 'react-icons/pi'
 import { useParams } from 'react-router-dom'
 import { useAppDispatch } from '../../hooks/redux'
-import { KEY_API, openModalMovieVideo } from '../../store/movieSlice'
+import {
+	KEY_API,
+	openModalMovieFilmVideo,
+	openModalMovieVideo,
+} from '../../store/movieSlice'
 import { IMoviesInfo } from '../../types'
 import { Button } from '../ui/button/Button'
 import './styles.css'
@@ -34,14 +38,14 @@ export const MovieInfo = () => {
 	return (
 		<div className='relative w-full h-full flex items-center justify-center shadows'>
 			<div
-				className='w-full h-[750px] flex items-center justify-center md:h-[400px]'
+				className='w-full h-[850px] flex items-center justify-center md:h-[400px]'
 				style={{
 					backgroundImage: `url("https://image.tmdb.org/t/p/original${item.backdrop_path}")`,
 					backgroundPosition: 'center',
 					backgroundSize: 'cover',
 				}}
 			></div>
-			<div className='w-[1440px] absolute bottom-[35%] z-10 px-10 xl2:w-full md:bottom-[-16rem] md:px-3'>
+			<div className='w-[1700px] absolute bottom-[35%] z-10 px-10 xl2:w-full md:bottom-[-16rem] md:px-3'>
 				<h1 className='text-4xl font-bold text-white mb-3 md:text-3xl'>
 					{item.original_title}
 				</h1>
@@ -83,7 +87,7 @@ export const MovieInfo = () => {
 				</div>
 				<div className='flex items-center gap-4 mt-3'>
 					<Button
-						onClick={() => dispatch(openModalMovieVideo())}
+						onClick={() => dispatch(openModalMovieFilmVideo())}
 						variant='primary'
 					>
 						Смотреть фильм{' '}

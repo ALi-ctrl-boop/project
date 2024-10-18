@@ -1,6 +1,6 @@
 export const Footer = () => {
 	return (
-		<footer className='w-full overflow-hidden pl-[13%] my-5 xl:pl-4'>
+		<footer className='w-full overflow-hidden pl-[6%] my-5 xl:pl-4'>
 			<p className='text-white text-2xl font-bold mb-4'>
 				Добро пожаловать на Kinomore - онлайн кинотеатр с более чем 960 тысячами
 				фильмов!

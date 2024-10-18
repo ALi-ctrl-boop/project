@@ -47,10 +47,10 @@ export const Movies = () => {
 
 	return (
 		<div className='w-full flex justify-center mt-5'>
-			<div className='w-[1440px] px-3 xl2:w-full md:px-2'>
+			<div className='w-[1700px] overflow-hidden px-3 xl2:w-full md:px-2'>
 				<h1 className='text-white text-4xl font-bold'>Фильмы</h1>
 
-				<div className='grid grid-cols-5 justify-items-center gap-3 mt-4 grids'>
+				<div className='grid grid-cols-6 justify-items-center gap-3 mt-4 grids'>
 					{movies.map(movie => (
 						<MovieCard key={movie.id} {...movie} sx='resps' />
 					))}
