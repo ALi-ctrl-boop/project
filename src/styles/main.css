@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	background-color: black;
+}
+
+*::-webkit-scrollbar{
+	width: 0;
+}
+
+@media (max-width: 520px) {
+	.decrt{
+		width: 100% !important;
+	}
+}

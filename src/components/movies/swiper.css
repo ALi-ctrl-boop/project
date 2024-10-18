@@ -1,0 +1,30 @@
+.splide__arrow--next {
+	right: 4em;
+}
+.swiper-slide {
+	width: 100%; /* Позволяет элементам занимать 100% доступного пространства */
+	height: auto; /* Высота будет зависеть от контента */
+	border-radius: 10px;
+	overflow: hidden;
+	position: relative;
+}
+
+@media (max-width: 768px) {
+	.resp_swipe {
+		padding-right: 12.3rem !important;
+	}
+	.resp {
+		width: 212px !important;
+		height: 310px !important;
+	}
+}
+
+@media (max-width: 525px) {
+	.resp_swipe {
+		padding-right: 10.3rem !important;
+	}
+	.resp {
+		width: 174px !important;
+		height: 261px !important;
+	}
+}

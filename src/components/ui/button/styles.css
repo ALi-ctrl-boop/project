@@ -1,0 +1,7 @@
+.btn-primary {
+	@apply text-white text-base font-bold py-3 px-6 rounded-lg bg-gradient-to-r from-[#2253b2] to-[#3b19c5] transition duration-300 hover:from-[#363cac] hover:to-[#494ce3];
+}
+
+.btn-secondary {
+	@apply text-white text-base font-bold py-3 px-6 rounded-lg bg-white bg-opacity-25 transition duration-300 hover:bg-opacity-45;
+}
