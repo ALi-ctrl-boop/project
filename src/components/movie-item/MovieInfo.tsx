@@ -1,10 +1,10 @@
-import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { FaRegStar } from 'react-icons/fa6'
 import { PiBookmarkSimple } from 'react-icons/pi'
 import { useParams } from 'react-router-dom'
 import { useAppDispatch } from '../../hooks/redux'
-import { KEY_API, toggleModal } from '../../store/movieSlice'
+import { getId } from '../../shared/utils/api/getId'
+import { toggleModal } from '../../store/movieSlice'
 import { IMoviesInfo } from '../../types'
 import { Button } from '../ui/button/Button'
 import './styles.css'
@@ -14,19 +14,8 @@ export const MovieInfo = () => {
 	const { id } = useParams()
 	const dispatch = useAppDispatch()
 
-	const getMovieInfo = async () => {
-		try {
-			const { data } = await axios.get<IMoviesInfo>(
-				`https://api.themoviedb.org/3/movie/${id}?api_key=${KEY_API}`
-			)
-			setItem(data)
-		} catch (error) {
-			console.error('Ошибка при получении данных:', error)
-		}
-	}
-
 	useEffect(() => {
-		getMovieInfo()
+		getId(id, '').then(data => setItem(data))
 	}, [id])
 
 	if (!item) return <div>Loading...</div>
@@ -63,16 +52,16 @@ export const MovieInfo = () => {
 					</span>
 				</div>
 				<p className='text-lg text-white w-[45%] mb-2 lg:w-2/3 info'>
-					{item.overview.substring(0, 200)}
+					{`${item.overview.substring(200, 0)}...`}
 				</p>
 				<div className='flex items-center gap-2 md:hidden'>
-					<span className='text-gray-400 font-bold text-lg'>Режиссёр:</span>
+					<span className='text-gray-400 font-bold text-lg'>Director:</span>
 					<ul>
-						<li className='text-white font-semibold'>Неизвестно</li>
+						<li className='text-white font-semibold'>Unknown</li>
 					</ul>
 				</div>
 				<div className='flex items-center gap-2 md:hidden'>
-					<span className='text-gray-400 font-bold text-lg'>Актеры:</span>
+					<span className='text-gray-400 font-bold text-lg'>Actors:</span>
 					<ul className='flex items-center gap-2'>
 						{item.credits?.cast.slice(0, 4).map(actor => (
 							<li key={actor.id} className='text-white font-semibold'>
@@ -90,7 +79,7 @@ export const MovieInfo = () => {
 						}
 						variant='primary'
 					>
-						Смотреть фильм{' '}
+						Watch movie
 					</Button>
 					<Button
 						onClick={() =>
@@ -98,7 +87,7 @@ export const MovieInfo = () => {
 						}
 						variant='secondary'
 					>
-						Трейлер
+						Treler
 					</Button>
 					<Button variant='secondary' sx='md:hidden'>
 						<PiBookmarkSimple size={25} />

@@ -1,7 +1,6 @@
-import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { MovieCard } from '../../components/movie-card/MovieCard'
-import { KEY_API } from '../../store/movieSlice'
+import { getAll } from '../../shared/utils/api/getAll'
 import { IMovies } from '../../types'
 import './styles.css'
 
@@ -10,22 +9,11 @@ export const Movies = () => {
 	const [isLoading, setLoading] = useState<boolean>(false)
 	const [currentPage, setCurrentPage] = useState<number>(1)
 
-	const getAllMovies = async (page: number) => {
-		setLoading(true)
-		try {
-			const { data } = await axios.get(
-				`https://api.themoviedb.org/3/movie/popular?api_key=${KEY_API}&page=${page}`
-			)
-			setMovies(movies => [...movies, ...data.results])
-		} catch (error) {
-			console.error('Ошибка при получении данных:', error)
-		} finally {
-			setLoading(false)
-		}
-	}
-
 	useEffect(() => {
-		getAllMovies(currentPage)
+		setLoading(true)
+		getAll(currentPage, 'movie/popular')
+			.then(data => setMovies(newPage => [...newPage, ...data]))
+			.finally(() => setLoading(false))
 	}, [currentPage])
 
 	const handleScrolling = () => {
@@ -48,14 +36,14 @@ export const Movies = () => {
 	return (
 		<div className='w-full flex justify-center mt-5'>
 			<div className='w-[1700px] overflow-hidden px-3 xl2:w-full md:px-2'>
-				<h1 className='text-white text-4xl font-bold'>Фильмы</h1>
+				<h1 className='text-white text-4xl font-bold'>Movies</h1>
 
 				<div className='grid grid-cols-6 justify-items-center gap-3 mt-4 grids'>
 					{movies.map(movie => (
 						<MovieCard key={movie.id} {...movie} sx='resps' />
 					))}
 				</div>
-				{isLoading && <h2 className='text-white'>Загрузка...</h2>}
+				{isLoading && <h2 className='text-white'>Loading...</h2>}
 			</div>
 		</div>
 	)

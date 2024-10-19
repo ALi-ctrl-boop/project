@@ -40,7 +40,7 @@ export const MovieCard = ({
 						</p>
 						<div className='flex items-center gap-4 sm:flex-col sm:items-start sm:gap-0'>
 							<span className='text-white font-bold text-base sm:text-sm'>
-								{release_date.toString().slice(0, 4)}
+								{release_date}
 							</span>
 							<span className='text-white font-bold text-base sm:text-sm'>
 								{Math.floor(Number(vote_count) / 60)} ч{' '}

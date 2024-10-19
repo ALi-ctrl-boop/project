@@ -15,10 +15,10 @@ export const Movie = () => {
 	useEffect(() => {
 		const endpoints = [
 			'movie/popular',
-			'discover/movie?with_genres=10751',
+			'discover/tv',
 			'movie/top_rated',
 			'movie/upcoming',
-			'movie/popular',
+			'movie/now_playing',
 		]
 		endpoints.forEach(end => {
 			dispatch(getAllMovies(end))

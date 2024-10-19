@@ -12,7 +12,7 @@ export const ProfileHeader = () => {
 				<h2 className='text-white text-3xl font-bold'>vsev21</h2>
 			</div>
 			<div>
-				<Button variant='primary'>Переаключить аккаунт</Button>
+				<Button variant='primary'>Switch account</Button>
 			</div>
 		</div>
 	)

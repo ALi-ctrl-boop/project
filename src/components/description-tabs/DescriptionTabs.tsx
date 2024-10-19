@@ -1,7 +1,6 @@
-import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { KEY_API } from '../../store/movieSlice'
+import { getId } from '../../shared/utils/api/getId'
 import { IMoviesInfo } from '../../types'
 
 export const DescriptionTabs = () => {
@@ -9,19 +8,8 @@ export const DescriptionTabs = () => {
 	const [item, setItem] = useState<IMoviesInfo | null>(null)
 	const { id } = useParams()
 
-	const getMovieInfo = async () => {
-		try {
-			const { data } = await axios.get<IMoviesInfo>(
-				`https://api.themoviedb.org/3/movie/${id}?api_key=${KEY_API}`
-			)
-			setItem(data)
-		} catch (error) {
-			console.error('Ошибка при получении данных:', error)
-		}
-	}
-
 	useEffect(() => {
-		getMovieInfo()
+		getId(id, '').then(data => setItem(data))
 	}, [id])
 
 	if (!item) return <div>Loading...</div>

@@ -64,7 +64,7 @@ export const Header = () => {
 				<Link to={'/profile'}>
 					<button className='flex items-center gap-2 text-white opacity-50 font-bold'>
 						<FaRegCircleUser size={25} />
-						Войти
+						Login
 					</button>
 				</Link>
 				<button onClick={() => setOpen(!isOpen)} className='hidden md:block'>

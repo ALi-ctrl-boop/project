@@ -27,10 +27,10 @@ export const Search = () => {
 				<MdOutlineClose size={35} className='text-white ' />
 			</button>
 			<div className='relative w-5/12 lg:w-5/6'>
-				<h2 className='text-white font-bold text-2xl mb-2'>Поиск</h2>
+				<h2 className='text-white font-bold text-2xl mb-2'>Search</h2>
 				<input
 					type='search'
-					placeholder='Поиск...'
+					placeholder='Search...'
 					value={search}
 					onChange={e => setSearch(e.target.value)}
 					className='w-full py-3 px-4 rounded-xl outline-none text-slate-500'

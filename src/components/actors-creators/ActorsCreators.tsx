@@ -1,26 +1,14 @@
-import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { KEY_API } from '../../store/movieSlice'
+import { getId } from '../../shared/utils/api/getId'
 import { IMovieCredits } from '../../types'
 
 export const ActorsCreators = () => {
 	const [movies, setMovies] = useState<IMovieCredits | null>(null)
 	const { id } = useParams()
 
-	const getMovieInfo = async () => {
-		try {
-			const { data } = await axios.get<IMovieCredits | null>(
-				`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${KEY_API}`
-			)
-			setMovies(data)
-		} catch (error) {
-			console.error('Ошибка при получении данных:', error)
-		}
-	}
-
 	useEffect(() => {
-		getMovieInfo()
+		getId(id, '/credits').then(data => setMovies(data))
 	}, [id])
 
 	if (!movies) return <div>Loading...</div>

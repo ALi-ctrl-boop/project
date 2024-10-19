@@ -4,6 +4,7 @@ import { Home } from '../pages/home/Home'
 import { MovieItem } from '../pages/movie-item/MovieItem'
 import { Movies } from '../pages/movies/Movies'
 import { Profile } from '../pages/profile/Profile'
+import { Series } from '../pages/series/Series'
 
 export const router = createBrowserRouter([
 	{
@@ -21,19 +22,7 @@ export const router = createBrowserRouter([
 			},
 			{
 				path: '/series',
-				element: (
-					<div
-						style={{
-							width: '100%',
-							height: '50vh',
-							display: 'flex',
-							justifyContent: 'center',
-							alignItems: 'center',
-						}}
-					>
-						<h1 style={{ color: 'white', fontSize: '32px' }}>Сериалов нет</h1>
-					</div>
-				),
+				element: <Series />,
 			},
 			{
 				path: '/profile',

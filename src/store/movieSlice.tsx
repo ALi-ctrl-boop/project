@@ -37,7 +37,7 @@ export const getAllMovies = createAsyncThunk(
 	async (endpoints: string, { rejectWithValue }) => {
 		try {
 			const { data } = await axios.get(
-				`https://api.themoviedb.org/3/${endpoints}?api_key=${KEY_API}`
+				`https://api.themoviedb.org/3/${endpoints}?api_key=${KEY_API}&page=5`
 			)
 			return { results: data.results, category: endpoints }
 		} catch (err) {
@@ -63,7 +63,7 @@ const sliceMovie = createSlice({
 				case 'movie/popular':
 					state.movies.popularMovies = action.payload.results
 					break
-				case 'discover/movie?with_genres=10751':
+				case 'discover/tv':
 					state.movies.familyMovies = action.payload.results
 					break
 				case 'movie/top_rated':
@@ -72,15 +72,18 @@ const sliceMovie = createSlice({
 				case 'movie/upcoming':
 					state.movies.dramaMovies = action.payload.results
 					break
-				case 'movie/popular':
+				case 'movie/now_playing':
 					state.movies.sciFiMovies = action.payload.results
 					break
 				default:
 					break
 			}
 		})
-		builder.addCase(getAllMovies.rejected, (state, action) => {
-			console.error(`Error fetching movies: ${action.payload}`)
+		builder.addCase(getAllMovies.rejected, action => {
+			console.error(
+				`Error fetching movies: ${(action.payload.errors.message =
+					'Invalid arguments')}`
+			)
 		})
 	},
 })

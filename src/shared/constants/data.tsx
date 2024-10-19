@@ -2,15 +2,15 @@ import { ICategoryMovies, INavigation, ISwiperImage } from '../interface'
 
 export const NAVIGATION_LINKS: INavigation[] = [
 	{
-		label: 'Главная',
+		label: 'Home',
 		href: '/',
 	},
 	{
-		label: 'Фильмы',
+		label: 'Movies',
 		href: '/movie',
 	},
 	{
-		label: 'Сериалы',
+		label: 'Series',
 		href: '/series',
 	},
 ]
@@ -18,96 +18,96 @@ export const NAVIGATION_LINKS: INavigation[] = [
 export const SLIDER_SWIPER: ISwiperImage[] = [
 	{
 		url: 'https://kinomore.netlify.app/images/hero-7.jpg',
-		title: 'Оппенгеймер',
+		title: 'Oppenheimer',
 		rating: 8.3,
-		genre: 'История',
+		genre: 'Story',
 		year: 2023,
 	},
 	{
 		url: 'https://kinomore.netlify.app/images/hero-2.jpg',
-		title: 'Браби',
+		title: 'Grab it',
 		rating: 6.6,
-		genre: 'Фэнтези',
+		genre: 'Fantasy',
 		year: 2023,
 	},
 	{
 		url: 'https://kinomore.netlify.app/images/hero-3.jpg',
-		title: 'Оставь мир позади',
+		title: 'Leave the world behind',
 		rating: 6.7,
-		genre: 'Фантастика',
+		genre: 'Fantasy',
 		year: 2023,
 	},
 	{
 		url: 'https://kinomore.netlify.app/images/hero-4.jpg',
-		title: 'Гран туризмо',
+		title: 'Gran Turismo',
 		rating: 7.6,
-		genre: 'Спорт',
+		genre: 'Sports',
 		year: 2023,
 	},
 	{
 		url: 'https://kinomore.netlify.app/images/hero-5.jpg',
-		title: 'Напалеон',
+		title: 'Napoleon',
 		rating: 6.5,
-		genre: 'История',
+		genre: 'Story',
 		year: 2023,
 	},
 	{
 		url: 'https://kinomore.netlify.app/images/hero-6.jpg',
-		title: 'Создатель',
+		title: 'Creator',
 		rating: 6.5,
-		genre: 'Драма',
+		genre: 'Drama',
 		year: 2023,
 	},
 ]
 
 export const CATEGORY_MOVIE: ICategoryMovies[] = [
 	{
-		title: 'Лучшие',
+		title: 'Best',
 		url: '/movies/comedy',
 		icon: '/svg/cup-1-svgrepo-com (1).svg',
 	},
 	{
-		title: 'Новые',
+		title: 'New',
 		url: '/movies/comedy',
 		icon: '/svg/fire-svgrepo-com.svg',
 	},
 	{
-		title: 'Мелодраммы',
+		title: 'Melodrama',
 		url: '/movies/comedy',
 		icon: '/svg/heart-svgrepo-com.svg',
 	},
 	{
-		title: 'Ужасы',
+		title: 'Horror',
 		url: '/movies/comedy',
 		icon: '/svg/knife-svgrepo-com.svg',
 	},
 	{
-		title: 'Приключения',
+		title: 'Adventures',
 		url: '/movies/comedy',
 		icon: '/svg/map-svgrepo-com (1).svg',
 	},
 	{
-		title: 'Фантастика',
+		title: 'Fantasy',
 		url: '/movies/comedy',
 		icon: '/svg/rocket-2-svgrepo-com.svg',
 	},
 	{
-		title: 'Семейные',
+		title: 'Family',
 		url: '/movies/comedy',
 		icon: '/svg/users-svgrepo-com.svg',
 	},
 	{
-		title: 'Комедии',
+		title: 'Comedy',
 		url: '/movies/comedy',
 		icon: '/svg/smile-square-svgrepo-com.svg',
 	},
 	{
-		title: 'Концерты',
+		title: 'Concerts',
 		url: '/movies/comedy',
 		icon: '/svg/music-2-svgrepo-com.svg',
 	},
 	{
-		title: 'Военные',
+		title: 'Military',
 		url: '/movies/comedy',
 		icon: '/svg/tank-war-svgrepo-com.svg',
 	},

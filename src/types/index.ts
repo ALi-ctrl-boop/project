@@ -39,3 +39,7 @@ export type IMovieCredits = {
 		}
 	]
 }
+
+export type ISeries = {
+	id: number
+}

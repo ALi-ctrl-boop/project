@@ -6,6 +6,7 @@ import { Modal } from '../ui/modal/Modal'
 export const MovieFilm = () => {
 	const { isOpenMovieFilmVideo } = useAppSelector(state => state.movie)
 	const dispatch = useAppDispatch()
+
 	return (
 		<Modal isOpen={isOpenMovieFilmVideo}>
 			<button
