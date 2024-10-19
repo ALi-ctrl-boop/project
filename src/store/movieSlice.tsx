@@ -53,7 +53,7 @@ const sliceMovie = createSlice({
 	reducers: {
 		toggleModal: (state, action) => {
 			const { modal, isOpen } = action.payload
-			state[modal] = isOpen
+			state[modal as keyof typeof state] = isOpen
 		},
 	},
 	extraReducers: builder => {
@@ -79,11 +79,8 @@ const sliceMovie = createSlice({
 					break
 			}
 		})
-		builder.addCase(getAllMovies.rejected, action => {
-			console.error(
-				`Error fetching movies: ${(action.payload.errors.message =
-					'Invalid arguments')}`
-			)
+		builder.addCase(getAllMovies.rejected, (_state, action) => {
+			console.error(`Error fetching movies: ${action.payload}`)
 		})
 	},
 })

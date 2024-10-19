@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom'
 
 interface IMovieCard {
 	id: number
-	poster_path: string
-	vote_average: number
-	original_title: string
-	release_date: number
-	vote_count: string
+	poster_path?: string
+	vote_average?: number
+	original_title?: string
+	release_date?: number
+	vote_count?: string
 	sx?: string
 }
 
