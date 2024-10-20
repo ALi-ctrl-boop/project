@@ -40,7 +40,7 @@ export const Movies = () => {
 
 				<div className='grid grid-cols-6 justify-items-center gap-3 mt-4 grids'>
 					{movies.map(movie => (
-						<MovieCard key={movie.id} {...movie} sx='resps' />
+						<MovieCard key={movie.id} {...movie} sx='resps' endpoint='movie' />
 					))}
 				</div>
 				{isLoading && <h2 className='text-white'>Loading...</h2>}

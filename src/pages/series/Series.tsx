@@ -37,7 +37,7 @@ export const Series = () => {
 
 				<div className='grid grid-cols-6 justify-items-center gap-3 mt-4 grids'>
 					{series.map(ser => (
-						<MovieCard key={ser.id} {...ser} sx='resps' />
+						<MovieCard key={ser.id} {...ser} sx='resps' endpoint='movie'/>
 					))}
 				</div>
 				{isLoading && <h2 className='text-white'>Loading...</h2>}

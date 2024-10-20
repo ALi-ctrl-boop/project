@@ -9,5 +9,6 @@ export const getAll = async (page: number, endpoint?: string) => {
 		return data.results
 	} catch (error) {
 		console.error('Ошибка при получении данных:', error)
+		return []; 
 	}
 }

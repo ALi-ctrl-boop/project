@@ -14,6 +14,8 @@ interface IStateType {
 	isOpenSearch: boolean
 	isOpenMovieVideo: boolean
 	isOpenMovieFilmVideo: boolean
+	isLoading: boolean
+	error: null | string
 }
 
 const initialState: IStateType = {
@@ -28,6 +30,8 @@ const initialState: IStateType = {
 	isOpenSearch: false,
 	isOpenMovieVideo: false,
 	isOpenMovieFilmVideo: false,
+	isLoading: false,
+	error: null,
 }
 
 export const KEY_API: string = '035f3efbffe9e336ca0f7bce84ce7cd9'
@@ -37,7 +41,7 @@ export const getAllMovies = createAsyncThunk(
 	async (endpoints: string, { rejectWithValue }) => {
 		try {
 			const { data } = await axios.get(
-				`https://api.themoviedb.org/3/${endpoints}?api_key=${KEY_API}&page=5`
+				`https://api.themoviedb.org/3/${endpoints}?api_key=${KEY_API}&page=8`
 			)
 			return { results: data.results, category: endpoints }
 		} catch (err) {
@@ -53,7 +57,11 @@ const sliceMovie = createSlice({
 	reducers: {
 		toggleModal: (state, action) => {
 			const { modal, isOpen } = action.payload
-			state[modal as keyof typeof state] = isOpen
+			if (modal in state) {
+				state[modal as keyof typeof state] = isOpen
+			} else {
+				console.error(`Invalid modal name: ${modal}`)
+			}
 		},
 	},
 	extraReducers: builder => {
@@ -79,8 +87,14 @@ const sliceMovie = createSlice({
 					break
 			}
 		})
-		builder.addCase(getAllMovies.rejected, (_state, action) => {
-			console.error(`Error fetching movies: ${action.payload}`)
+		builder.addCase(getAllMovies.pending, state => {
+			state.isLoading = true
+			state.error = null
+		})
+		builder.addCase(getAllMovies.rejected, (state, action) => {
+			state.isLoading = false
+			state.error = action.error.message =
+				'Invalid response from server for movie'
 		})
 	},
 })

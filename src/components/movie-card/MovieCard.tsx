@@ -8,6 +8,7 @@ interface IMovieCard {
 	release_date?: number
 	vote_count?: string
 	sx?: string
+	endpoint?: string
 }
 
 export const MovieCard = ({
@@ -18,9 +19,10 @@ export const MovieCard = ({
 	release_date,
 	vote_count,
 	sx,
+	endpoint,
 }: IMovieCard) => {
 	return (
-		<Link to={`/movie/${id}`}>
+		<Link to={`/${endpoint}/${id}`}>
 			<div
 				className={`relative w-64 h-96 rounded-xl cursor-pointer group transition duration-500 hover:scale-[1.05] hover:border border-slate-400 resp ${sx}`}
 			>
