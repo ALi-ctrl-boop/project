@@ -25,7 +25,7 @@ export const Series = () => {
 
 	useEffect(() => {
 		setLoading(true)
-		getAll(currentPage, 'discover/tv')
+		getAll(currentPage, `discover/tv`)
 			.then(data => setSeries(newPage => [...newPage, ...data]))
 			.finally(() => setLoading(false))
 	}, [currentPage])
@@ -34,10 +34,9 @@ export const Series = () => {
 		<div className='w-full flex justify-center mt-5'>
 			<div className='w-[1700px] overflow-hidden px-3 xl2:w-full md:px-2'>
 				<h1 className='text-white text-4xl font-bold'>Series</h1>
-
-				<div className='grid grid-cols-6 justify-items-center gap-3 mt-4 grids'>
+				<div className='grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-5 mt-5'>
 					{series.map(ser => (
-						<MovieCard key={ser.id} {...ser} sx='resps' endpoint='movie'/>
+						<MovieCard key={ser.id} {...ser} sx='resps' endpoint='movie' />
 					))}
 				</div>
 				{isLoading && <h2 className='text-white'>Loading...</h2>}

@@ -52,7 +52,9 @@ export const MovieInfo = () => {
 					</span>
 				</div>
 				<p className='text-lg text-white w-[45%] mb-2 lg:w-2/3 info'>
-					{`${item.overview.substring(200, 0)}...`}
+					{item.overview && item.overview?.length > 60
+						? `${item.overview?.substring(0, 200)}...`
+						: item.overview}
 				</p>
 				<div className='flex items-center gap-2 md:hidden'>
 					<span className='text-gray-400 font-bold text-lg'>Director:</span>

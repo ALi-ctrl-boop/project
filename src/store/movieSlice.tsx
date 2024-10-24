@@ -1,6 +1,8 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import axios from 'axios'
 import { IMovies } from '../types'
+
+type ModalKeys = 'isOpenSearch' | 'isOpenMovieVideo' | 'isOpenMovieFilmVideo';
 
 interface IStateType {
 	movies: {
@@ -55,13 +57,15 @@ const sliceMovie = createSlice({
 	name: 'movie',
 	initialState,
 	reducers: {
-		toggleModal: (state, action) => {
+		toggleModal: (
+			state,
+			action: PayloadAction<{
+				modal: ModalKeys
+				isOpen: boolean
+			}>
+		) => {
 			const { modal, isOpen } = action.payload
-			if (modal in state) {
-				state[modal as keyof typeof state] = isOpen
-			} else {
-				console.error(`Invalid modal name: ${modal}`)
-			}
+			state[modal] = isOpen
 		},
 	},
 	extraReducers: builder => {

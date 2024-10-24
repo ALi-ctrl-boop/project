@@ -65,7 +65,7 @@ export const Movie = () => {
 							{movieCatalog.movies && movieCatalog.movies.length > 0 ? (
 								movieCatalog.movies.map(movie => (
 									<SplideSlide key={movie.id} className='my-5 pr-60 resp_swipe'>
-										<MovieCard {...movie} endpoint='movie' />
+										<MovieCard {...movie} endpoint='movie' sx='w-64 resp' />
 									</SplideSlide>
 								))
 							) : (

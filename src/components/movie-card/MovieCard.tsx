@@ -24,7 +24,7 @@ export const MovieCard = ({
 	return (
 		<Link to={`/${endpoint}/${id}`}>
 			<div
-				className={`relative w-64 h-96 rounded-xl cursor-pointer group transition duration-500 hover:scale-[1.05] hover:border border-slate-400 resp ${sx}`}
+				className={`relative h-96 rounded-xl cursor-pointer group transition duration-500 hover:scale-[1.05] hover:border border-slate-400 ${sx}`}
 			>
 				<img
 					src={`https://image.tmdb.org/t/p/w500${poster_path}`}
@@ -38,7 +38,9 @@ export const MovieCard = ({
 					</span>
 					<div className='absolute bottom-2 left-4'>
 						<p className='text-base text-white font-bold sm:text-sm'>
-							{original_title}
+							{original_title && original_title?.length > 60
+								? `${original_title?.substring(0, 40)}...`
+								: original_title}
 						</p>
 						<div className='flex items-center gap-4 sm:flex-col sm:items-start sm:gap-0'>
 							<span className='text-white font-bold text-base sm:text-sm'>

@@ -46,7 +46,8 @@ export const MovieVideo = () => {
 			</button>
 			<div className='relative w-[700px] h-[400px] bg-black md:w-full '>
 				<ReactPlayer
-					className='w-full h-full'
+					width='100%'
+					height='100%'
 					url={`https://www.youtube.com/watch?v=${videos}`}
 					controls={false}
 					autoPlay
