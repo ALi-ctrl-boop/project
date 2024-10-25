@@ -40,7 +40,7 @@ export const Movie = () => {
 					className='w-full overflow-hidden pl-[6%] xl:pl-4 mb-6'
 					key={index}
 				>
-					<div className='flex items-center gap-3'>
+					<div className='flex items-center gap-3 mb-4'>
 						<h2 className='text-white text-2xl font-bold transition-opacity duration-300 hover:opacity-70'>
 							{movieCatalog.title}
 						</h2>
