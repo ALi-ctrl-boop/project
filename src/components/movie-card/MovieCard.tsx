@@ -24,7 +24,7 @@ export const MovieCard = ({
 	return (
 		<Link to={`/${endpoint}/${id}`}>
 			<div
-				className={`relative h-96 rounded-xl cursor-pointer group transition duration-500 hover:scale-[1.05] hover:border border-slate-400 ${sx}`}
+				className={`relative h-96 rounded-xl cursor-pointer group transition duration-500 hover:scale-[1.05] hover:border border-slate-400 ${sx} md:h-60`}
 			>
 				<img
 					src={`https://image.tmdb.org/t/p/w500${poster_path}`}

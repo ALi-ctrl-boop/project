@@ -52,7 +52,7 @@ export const Movies = () => {
 						<option value='upcoming'>Upcoming</option>
 					</select>
 				</div>
-				<div className='grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-5 mt-5 md:px-10'>
+				<div className='grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-5 mt-5 md:px-10 md:grid-cols-[repeat(auto-fit,minmax(150px,1fr))]'>
 					{movies.map(movie => (
 						<MovieCard key={movie.id} {...movie} endpoint='movie' />
 					))}
